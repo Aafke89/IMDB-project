@@ -1,0 +1,30 @@
+<script>
+  		Polymer('happy-code', {
+  			code: ":):):):):)",
+  			codeChanged: function(){
+  				var regex = /la/gi, result, indices = [];
+  				while (result = regex.exec(this.code)){
+  				alert(indices.push(result.index));
+  		}	}
+
+  			
+  		});
+  </script>
+
+<script>
+var str = 'some kind of text with letter e in it',
+    letter = 'e',
+    indexes = [];
+
+$.each(str.split(''),function(i,v){
+    if(v === letter) indexes.push(i);
+});
+
+console.log(indexes); 
+
+</script>
+
+
+
+  12345678910:):)
+

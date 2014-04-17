@@ -1,0 +1,80 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+
+<style>
+	p {color: red;
+		font-size: 36px;
+		font-family: arial}
+	div {
+		font-family: arial
+	}
+
+
+  #block {border: 1px;
+          ;}
+</style>
+
+<polymer-element name="happy-code">
+  <template>
+    <p>How happy is your code?<p>
+    	<div> Put you're code here: <input name="code" type='text' id='code' value={{code}}> </div>
+
+      <p>
+
+    	 </template>
+  <script>
+  		Polymer('happy-code', {
+  			code: ":)",
+  		codeChanged: function()
+            {
+  			
+  				var pos = 0;
+  				var num = -1;
+  				var i = -1;
+ 				
+  				while (pos != -1) {
+    				pos = this.code.indexOf(":)", i + 1);
+   					num += 1;
+    				i = pos;
+  						}  	
+
+  				console.log(num)
+
+
+  				var str = this.code.length
+  				var happiness = num/str*100
+
+          var sad = "very sad code"
+
+          console.log(happiness)
+
+ 				if 
+                    (happiness < 0.01)
+                    {alert("Wow, your code is so sad. Are you using HTML or something?")}
+                else if 
+                    (happiness < 0.1)
+                    {alert("Hmm, it could be happier")}
+                else if 
+                    (happiness < 1)
+                    {alert("happy code! :)")}
+                else
+                    {alert("what did you do to your code to make it this happy?!")};
+                    
+
+  					}  		
+
+            
+
+
+            
+
+
+  		
+  		});
+
+  		// some improvements
+  		 	// codechanged should be something else like pressenter or something
+  		 	// an image should appear
+  		 	// search for all smileys = :) / ;) etc
+			// Look for the right amount of happiness. When is code happy?
+  </script>
+</polymer-element>
