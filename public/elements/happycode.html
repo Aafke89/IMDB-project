@@ -5,12 +5,10 @@
 		font-size: 36px;
 		font-family: arial}
 	div {
+    color: black;
 		font-family: arial
 	}
 
-
-  #block {border: 1px;
-          ;}
 </style>
 
 <polymer-element name="happy-code">
@@ -18,9 +16,9 @@
     <p>How happy is your code?<p>
     	<div> Put your code here: <input name="code" type='text' id='code' value={{code}}> </div>
 
-      <p>
+      <div id="result"><div>
 
-    	 </template>
+  </template>
   <script>
   		Polymer('happy-code', {
   			code: ":)",
@@ -58,6 +56,10 @@
                     {alert("happy code! :)")}
                 else
                     {alert("what did you do to your code to make it this happy?!")};
+
+          //document.write(happiness + "% of your code exists out of smileys")
+
+
                     
 
   					}  		
@@ -76,6 +78,7 @@
   		 	// an image should appear
   		 	// search for all smileys = :) / ;) etc
 			// Look for the right amount of happiness. When is code happy?
+      // append results or something
 
   </script>
 </polymer-element>

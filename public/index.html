@@ -4,21 +4,38 @@
     <!-- 1. Load platform.js for polyfill support. -->
     
     <script src="vendor/bower_components/platform/platform.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/app.js"></script>
+    <link rel="stylesheet" href="style.css"></style>
 
-   
 
     <!-- 2. Use an HTML Import to bring in the element. -->
     <link rel="import"
           href="elements/happycode.html">
-          <link rel="import"
+    <link rel="import"
           href="elements/searchword.html">
+    <link rel="import"
+          href="elements/customword.html">
+
   </head>
   <body>
-    
+
+<div id="page">
+<div id="header"><h1>Two simple webcomponents<h1></div>
+<div id="content">
       <happy-code> </happy-code>
 
       <count-word> </count-word>
 
+      
+</div>
 
+<div id="footer">Assignment 6, Aafke Smal, 6160972</div>
+</div>
+
+
+      
+
+      
   </body>
 </html>

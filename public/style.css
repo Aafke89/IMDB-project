@@ -1,0 +1,33 @@
+ #header {
+      border-bottom: 1px solid black;
+
+   }
+
+   #page {
+    margin-left: 20px;
+    margin-top:20px;
+   }
+
+   html {background: url() no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+   h1 {
+      font-family: arial;
+      font-size: 32px;
+      margin: auto;
+   }
+
+   #footer{
+          font-family: arial;
+          font-color: black;
+          font-size: 10px;
+          position: fixed;
+          right: 40px;
+          bottom:20px;
+          border-top: 1px solid black;
+        }
+

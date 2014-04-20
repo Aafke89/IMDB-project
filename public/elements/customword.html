@@ -10,7 +10,7 @@
 
 </style>
 
-<polymer-element name="count-word">
+<polymer-element name="custom-word">
   <template>
     <p>How often does a word appear in your text?<p>
       <div> Which word would you like to count? <input name="word" type='text' id='word' value={{word}}> </div>
@@ -20,7 +20,7 @@
 
     	 </template>
   <script>
-  		Polymer('count-word', {
+  		Polymer('custom-word', {
   			word: "avant-garde",
         text: "This piece of code is very avant-garde",
   		textChanged: function()
@@ -47,7 +47,6 @@
 
   		// some improvements
   		 	// make a button
-        // make a custom wordcounter where you can define the word to be searched in the index.html
   		 	
       
   </script>
