@@ -1,53 +1,54 @@
 <link rel="import" href="../vendor/bower_components/polymer/polymer.html">
 
 <style>
-	p {color: red;
-		font-size: 36px;
-		font-family: arial}
-	div {
-		font-family: arial
-	}
+  p {color: red;
+    font-size: 36px;
+    font-family: arial}
+  div {
+    font-family: arial
+  }
 
 </style>
 
 <polymer-element name="custom-word">
   <template>
-    <p>How often does a word appear in your text?<p>
-      <div> Which word would you like to count? <input name="word" type='text' id='word' value={{word}}> </div>
-    	<div> Put your text here: <input name="text" type='text' id='text' value={{text}}> </div>
+    <p>Search for the word "{{innerHTML}}" in a text!<p>
+    <div> Put your text here: <input name="text" type='text' id='text' value={{text}}> </div>
 
       <p>
 
-    	 </template>
+       </template>
   <script>
-  		Polymer('custom-word', {
-  			word: "avant-garde",
-        text: "This piece of code is very avant-garde",
-  		textChanged: function()
+      Polymer('custom-word', {
+        text: "A random text you choose",
+      textChanged: function()
             {
-  			
-  				var pos = 0;
-  				var num = -1;
-  				var i = -1;
-          var word = this.word;
- 				
-  				while (pos != -1) {
-    				pos = this.text.indexOf(word, i + 1);
-   					num += 1;
-    				i = pos;
-  						}  	
+        
+          var pos = 0;
+          var num = -1;
+          var i = -1;
+          var word = this.innerHTML;
+        
+          while (pos != -1) {
+            pos = this.text.indexOf(word, i + 1);
+            num += 1;
+            i = pos;
+              }   
 
-  				console.log(num)
+          console.log(num)
 
 
- 				   alert("This text contains " + word + " " + num + " times")
+           alert("This text contains " + word + " " + num + " times")
 
-  		
-  		}});
+            
 
-  		// some improvements
-  		 	// make a button
-  		 	
+
+            
+
+
       
+      }});
+
+           
   </script>
 </polymer-element>

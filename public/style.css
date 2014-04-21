@@ -31,3 +31,14 @@
           border-top: 1px solid black;
         }
 
+  #element {
+
+    border-left: 1px solid black;
+    
+  }
+
+  #stripe {
+
+    border-bottom: 1px solid black;
+  }
+

@@ -1,0 +1,68 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+
+<style>
+	p {color: red;
+		font-size: 36px;
+		font-family: arial}
+	div {
+		font-family: arial
+	}
+
+  #box {
+    border: 1px dotted red;
+    margin: 20px 20px 20px 0px;
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    overflow: scroll;  }
+
+</style>
+
+<polymer-element name="custom-text">
+  <template>
+    <p>Count a word you choose in my text<p>
+      
+
+      <div> Which word would you like to count? <input name="word" type='text' id='word' value={{word}}> </div>
+
+      <div id="box"> {{innerHTML}} </div>
+
+    	
+
+      <p>
+
+    	 </template>
+  <script>
+  		Polymer('custom-text', {
+  			word: "avant-garde",
+        text: "This piece of code is very avant-garde",
+  		wordChanged: function()
+            {
+  			
+  				var pos = 0;
+  				var num = -1;
+  				var i = -1;
+          var word = this.word;
+
+ 				
+  				while (pos != -1) {
+    				pos = this.innerHTML.indexOf(word, i + 1);
+   					num += 1;
+    				i = pos;
+  						}  	
+
+  				console.log(num)
+
+
+ 				   alert("This text contains " + word + " " + num + " times")
+
+  		
+  		}});
+
+  		// some improvements
+  		 	// make a button
+        // make a custom wordcounter where you can define the word to be searched in the index.html
+  		 	
+      
+  </script>
+</polymer-element>

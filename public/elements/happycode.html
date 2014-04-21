@@ -47,15 +47,19 @@
 
  				if 
                     (happiness < 0.01)
-                    {alert("Wow, your code is so sad. Are you using HTML or something?")}
+                    {alert("Wow, your code is so sad. Are you using HTML or something?" +
+                      " (" + happiness + "% of your code smiles!)")}
                 else if 
                     (happiness < 0.1)
-                    {alert("Hmm, it could be happier")}
+                    {alert("Hmm, it could be happier" +
+                      " (" + happiness + "% of your code smiles!)")}
                 else if 
                     (happiness < 1)
-                    {alert("happy code! :)")}
+                    {alert("happy code! :)" +
+                      " (" + happiness + "% of your code smiles!)")}
                 else
-                    {alert("what did you do to your code to make it this happy?!")};
+                    {alert("what did you do to your code to make it this happy?!" +
+                      " (" + happiness + "% of your code smiles!)")};
 
           //document.write(happiness + "% of your code exists out of smileys")
 
