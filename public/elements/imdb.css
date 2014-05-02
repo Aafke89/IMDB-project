@@ -1,0 +1,50 @@
+p {color: black;
+    font-size: 12px;
+    font-family: arial
+  }
+  div {
+    color: black;
+    font-family: arial
+      }
+
+  #title {
+    color: red;
+    font-size: 50px;
+    font-family: arial;
+    text-shadow: 2px 2px black;
+
+  }
+
+      #wrapper {
+    width: 800px;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+  #poster {
+    display: inline-block;
+    margin: 10px 20px 20px 20px;
+    border: 1px white;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+
+
+  }
+
+  #info {
+    display: inline-block;
+    border: 1px white;
+    margin: 10px 20px 20px 20px;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+     
+  }
+
+  .thumb {
+    max-width: 100px;
+    max-height: 140px;
+    min-width: 100px;
+    min-height: 140px;
+}

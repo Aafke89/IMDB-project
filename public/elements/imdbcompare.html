@@ -1,0 +1,93 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+
+<polymer-element name="imdb-compare" attributes="movie" noscript>
+
+<link href="imdb.css" rel="stylesheet" />
+
+  <template>
+
+
+     <br></br> <div> Compare two movies <input name="word" type='text' id='movie' value={{movie1}}><input name="word" type='text' id='movie' value={{movie2}}> </div>
+
+      <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie1}}&callback=" response="{{response1}}"></polymer-jsonp>
+      <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie2}}&callback=" response="{{response2}}"></polymer-jsonp>
+
+      <div id="wrapper">
+              
+      <div id="poster">
+
+        <img class="thumb" src="http://imdb.wemakesites.net/api/1.0/img/?url={{response1.Poster}}" />
+
+        <p id="title">{{response1.Title}}</p>
+        
+         <p>IMDB rating: {{response1.imdbRating}}</p>
+
+         <p>Released: {{response1.Released}}</p>
+
+         <p>Rating: {{response1.Rated}}</p>
+
+         <p>Run Time: {{response1.Runtime}}
+
+         <p>Genre: {{response1.Genre}}<p>
+
+         <p>Director: {{response1.Director}}</p>
+
+         <p>Writers: {{response1.Writer}}</p>
+
+         <p>Actors: {{response1.Actors}} </p>
+        
+         <p>Plot: {{response1.Plot}}</p>
+        
+         <p>The movie is in {{response1.Language}} language and was shot at {{response1.Country}} won {{response1.Awards}}</p> 
+      </div>
+      <div id="info">
+
+        <img class="thumb" src="http://imdb.wemakesites.net/api/1.0/img/?url={{response2.Poster}}" />
+
+        <p id="title">{{response2.Title}}</p>
+        
+         <p>IMDB rating: {{response2.imdbRating}}</p>
+
+         <p>Released: {{response2.Released}}</p>
+
+         <p>Rating: {{response2.Rated}}</p>
+
+         <p>Run Time: {{response2.Runtime}}
+
+         <p>Genre: {{response2.Genre}}<p>
+
+         <p>Director: {{response2.Director}}</p>
+
+         <p>Writers: {{response2.Writer}}</p>
+
+         <p>Actors: {{response2.Actors}} </p>
+        
+         <p>Plot: {{response2.Plot}}</p>
+        
+         <p>The movie is in {{response2.Language}} language and was shot at {{response2.Country}} won {{response2.Awards}}</p> 
+      </div>
+    </div>
+
+     </template>
+
+     
+
+  <script>
+
+  Polymer({
+
+      ready: function() {
+        this.$.ajax.addEventListener('polymer-response',function(data){
+            window.data = data;
+            this.response = data.detail.response;
+        });
+      }
+    });
+
+   </script>
+
+</polymer-element>
