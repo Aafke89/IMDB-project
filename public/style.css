@@ -6,20 +6,16 @@
    #page {
     margin-left: 20px;
     margin-top:20px;
-   }
+       }
 
-   html {background: url() no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
+  
    h1 {
       font-family: arial;
       font-size: 32px;
       margin: auto;
    }
+
+   body {height: 100%;}
 
    
 
@@ -45,6 +41,59 @@
       color: blue;
       text-decoration: none;
    }
+
+   #left{
+      float: left;
+      margin-top: 20px;
+      margin-right: 20px ;
+      border-right: 1px solid black;
+      width: 350px;
+            }
+
+  #lefttop {
+    float: top;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    height: 350px;
+
+   }
+
+   #leftbottom {
+    font-family: arial;
+          font-color: black;
+          font-size: 6px;
+          float: top;
+          right: 40px;
+          text-align: left;
+           }
+
+
+   #right{
+      position: fixed;
+      right: 40px;
+      margin-left: 350px;
+      overflow: auto;
+
+   }
+
+   #righttop {
+    float: top;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-bottom: 1px solid black;
+    height: 350px;
+
+   }
+
+   #rightbottom {
+    font-family: arial;
+          font-color: black;
+          font-size: 12px;
+          float: top;
+          right: 40px;
+          text-align: center;
+           }
 
    #footer{
           font-family: arial;

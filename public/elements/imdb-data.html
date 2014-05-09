@@ -1,0 +1,94 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<style> p {color: black;
+    font-size: 6px;
+    font-family: arial;
+
+  }
+  div {
+    color: black;
+    font-family: arial
+
+      }
+
+  #title {
+    color: red;
+    font-size: 50px;
+    font-family: arial;
+    text-shadow: 2px 2px black;
+
+  }
+
+      #wrapper {
+    border: 1px solid black;
+    float: left; 
+    display: inline; 
+    width: 30%;
+    padding: 1px;
+}
+    
+     .thumb {
+    max-width: 100%;
+    max-height: 200px;
+    min-width: 100%;
+    min-height: 200px;
+    display: inline; 
+}
+</style>
+
+<polymer-element name="imdb-data" attributes="movie">
+
+  <template>
+
+    
+    <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?i={{movie}}&callback=" response="{{response}}"></polymer-jsonp>
+
+    <content>
+      <div class="info">
+         <img src="http://imdb.wemakesites.net/api/1.0/img/?url={{response.Poster}}" class="thumb" />
+         
+         <p>{{response.Title}}</p>
+        
+         <p>IMDB rating: {{response.imdbRating}}</p>
+
+         <p>Released: {{response.Released}}</p>
+
+         <p>Rating: {{response.Rated}}</p>
+
+         <p>Run Time: {{response.Runtime}}
+
+         <p>Genre: {{response.Genre}}<p>
+
+         <p>Director: {{response.Director}}</p>
+
+         <p>Writers: {{response.Writer}}</p>
+
+         <p>Actors: {{response.Actors}} </p>
+        
+         <p>Plot: {{response.Plot}}</p>
+        
+         <p>The movie is in {{response.Language}} language and was shot at {{response.Country}} won {{response.Awards}}</p> 
+      </div>
+    </content>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      ready: function() {
+        this.$.ajax.addEventListener('polymer-response',function(data){
+            window.data = data;
+            this.response = data.detail.response;
+        });
+      }
+    });
+
+  </script>
+
+</polymer-element>
+

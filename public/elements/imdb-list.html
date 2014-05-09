@@ -1,0 +1,69 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+<link rel="import" href="../vendor/bower_components/core-ajax/core-ajax.html">
+
+ <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script type="text/javascript" src="../vendor/d3.v3.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+
+<polymer-element name="imdb-list" attributes="movie">
+
+<link href="imdb.css" rel="stylesheet" />
+
+  <template>
+
+  	 
+  </template>
+
+  <script>
+
+ // $( document ).ready(function() {
+   // console.log( "ready!" );
+
+
+ // d3.json("https://imdbapi.firebaseio.com/.json", function(data){
+			//return d = data});
+
+  //var dataset = Object.keys(d).map(function(key){ return d[key]});
+
+  //d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
+  //var d = Object.keys(data).map(function(key){ return data[key]});
+
+
+//var  output = '';
+//for (var i = 0 ; i < d.length; i++) {
+  //  output += d[i].Title + ' (' + d[i].Year +')'};
+
+//    console.log(output)
+
+  // $("#rightbottom").append(output);
+//});
+
+
+$(document).ready(
+
+	d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
+  var d = Object.keys(data).map(function(key){ return data[key]});
+
+            for(i=0; i<d.length; i++){
+                    var  content  = '<p>';
+                         content +=  d[i].Title + ' / ' + d[i].Year + ' / ' + d[i].imdbRating;
+                         content += '</p>';
+ 
+            $('#rightbottom').append(content);
+                }
+ 
+            })
+	);
+ 
+
+
+
+
+
+</script>
+
+</polymer-element>

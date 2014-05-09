@@ -1,0 +1,54 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+
+ <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+
+<polymer-element name="imdb-firebase" attributes="movie">
+
+<link href="imdb.css" rel="stylesheet" />
+
+  <template>
+    
+    <div> Which movie would you like to add <input name="word" type='text' id='movie' value={{movie}}> </div>
+    <div id="click" on-click="{{addMovie}}">Click to add movie</div>
+
+    <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie}}&callback=" response="{{response}}"></polymer-jsonp>
+
+    <div id="poster">
+        <img src="http://imdb.wemakesites.net/api/1.0/img/?url={{response.Poster}}" />
+      </div>
+
+  </template>
+
+  <script>
+
+  var imdbapi = new Firebase('https://imdbapi.firebaseio.com/');
+  var newimdbapi = imdbapi.push();
+
+  Polymer('imdb-firebase', {
+      
+      addMovie: function()
+            {
+        
+                  
+ newimdbapi.set(this.response);
+
+ location.reload();
+            
+
+
+      
+      }});
+
+  
+
+ 
+  
+  </script>
+
+</polymer-element>
+

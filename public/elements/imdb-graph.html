@@ -1,0 +1,130 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+<link rel="import" href="../vendor/bower_components/core-ajax/core-ajax.html">
+
+ <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+<script type="text/javascript" src="../vendor/d3.v3.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<link rel="import"
+          href="../elements/imdb-data.html">
+
+
+<polymer-element name="imdb-graph" attributes="movie">
+
+<link href="imdb.css" rel="stylesheet" />
+
+  <template>
+
+  </template>
+
+  <script>
+
+
+$(document).ready(
+
+	d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
+  var d = Object.keys(data).map(function(key){ return data[key]});
+
+  console.log(d);
+
+  			 var w = 300;
+             var h = 300;
+             var wm = 280;
+             var hm = 280;
+             
+    var svg = d3.select("#lefttop")
+             .append("svg")
+             .attr("width", w)
+             .attr("height", h);
+
+   
+   var movies = svg.selectAll("movies")
+          	 .data(d)
+          	 .enter()
+          	 .append("circle")
+          	 .attr("r", function(d){
+          	 	return (d.imdbRating -4 )* 4;
+          	 })
+          	 .attr("cx", function(d, i) {
+                return Math.random() * wm; })
+            .attr("cy", function(d){
+                return Math.random() * hm; 
+            })
+            .attr("fill", "grey")
+            .attr("xlink:href", function (d) {
+                return "http://www.omdbapi.com/?t=" + (d.Title);
+             })
+            .on("mouseover", function(d){
+            	$("#lefttop").append(d.Title);
+            })
+            .on("click", function(d){
+              $("#leftbottom").append("<imdb-data movie=" + d.imdbID + " >" + "</imdb-data>");
+           });  
+                                
+          	 
+   $("#country").on("click", function()
+            { 
+            movies.transition()
+             .duration(3000)
+          	 .attr("cx", function(d, i) {
+                return Math.random() * wm; })
+            .attr("cy", function(d){
+                return Math.random() * hm; 
+            })
+             .attr("fill", function(d) {
+             	if (d.Country == "USA"){return "blue"}
+                else if (d.Country == "Germany") {return "red"}
+                	else {return "green"}
+            });
+         });
+             
+
+$("#year").on("click", function()
+            { 
+             movies.transition()
+             .duration(3000)
+             .attr("cx", function(d, i) {
+                return Math.random() * wm; })
+            .attr("cy", function(d){
+                return Math.random() * hm; 
+            })
+             .attr("fill", function(d) {
+             	if (d.Year < 1950){return "yellow"}
+                else if (d.Year < 1980) {return "orange"}
+                else if (d.Year < 2000) {return "red"}
+                	else {return "purple"}
+            });
+             });
+
+
+
+
+
+
+             
+
+          
+ 
+ 		
+             
+           
+
+
+
+
+
+ }) );
+ 
+
+
+
+
+
+</script>
+
+</polymer-element>
+

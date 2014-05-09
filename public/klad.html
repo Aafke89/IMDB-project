@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Barchart</title>
+        <script type="text/javascript" src="../vendor/d3.v3.js"></script>
+         <script src='https://cdn.firebase.com/v0/firebase.js'></script>
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+             
+             $(document).ready(
+
+    d3.json("https://imdbapi.firebaseio.com/.json", function(data){         
+  var d = Object.keys(data).map(function(key){ return data[key]});
+
+  console.log(d);
+
+        var margin = {top: 20, right: 20, bottom: 100, left: 40},
+            width = 500 - margin.left - margin.right,
+            height = 300 - margin.top - margin.bottom;
+
+        var barPadding = 2;
+
+        var x = d3.scale.ordinal()
+            .domain(d3.range(d.length))
+            .rangeRoundBands([0, width], .1);
+
+        var y = d3.scale.linear()
+            .domain([0, d3.max(data, function (d) { 
+                return d.imdbRating
+            })])  
+            .rangeRound([height, 0]);
+
+             var wd = width / d.length
+
+
+
+ console.log(wd);
+
+ var xAxis = d3.svg.axis()
+            .scale(x)
+            .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .tickFormat(d3.format(".2s"));
+
+             
+     var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    x.domain(d.map (function(d) {return d.title;}));
+
+    svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis)
+                .selectAll("text")
+                    .style("text-anchor", "end")
+                    .attr("dx", "-.8em")
+                    .attr("dy", ".15em")
+                    .attr(
+                      "transform", function (d){
+                            return "rotate(-20)"
+                        });
+
+
+
+    svg.append("g")
+                .attr("class", "y axis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text(function (d){
+                        return "rating"
+                    });
+
+
+    svg.selectAll("circle")
+            .data(d)
+            .enter()
+            .append("circle")
+            .attr("r", function(d) {
+                return d.imdbRating;})
+            .attr("cx", function(d, i) {
+                return Math.random();})
+            .attr("cy", function(d){
+                return y(d.imdbRating);
+            })
+            .attr("fill", function(d) {
+                return "blue";
+            });
+
+    
+
+        
+
+     console.log(d.length);
+ 
+ 
+           
+
+
+
+
+
+ }) );
+
+
+
+            
+        </script> 
+       
+    </body>
+</html>

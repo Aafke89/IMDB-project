@@ -1,0 +1,66 @@
+<link rel="import" href="../vendor/bower_components/polymer/polymer.html">
+<link rel="import" href="../vendor/bower_components/polymer-jsonp/polymer-jsonp.html"> 
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+
+<polymer-element name="imdb-year" attributes="movie">
+
+<link href="imdb.css" rel="stylesheet" />
+
+  <template>
+
+
+     <br></br> <div> Which movie would you like to search <input name="word" type='text' id='year' value={{year}}> </div>
+
+      <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/&y=1969&callback=" response="{{response}}"></polymer-jsonp>
+
+      <div id="wrapper">
+      <div id="poster">
+        <img src="http://imdb.wemakesites.net/api/1.0/img/?url={{response.Poster}}" />
+      </div>
+
+      <div id="info">
+
+        <p id="title">{{response.Title}}</p>
+        
+         <p>IMDB rating: {{response.imdbRating}}</p>
+
+         <p>Released: {{response.Released}}</p>
+
+         <p>Rating: {{response.Rated}}</p>
+
+         <p>Run Time: {{response.Runtime}}
+
+         <p>Genre: {{response.Genre}}<p>
+
+         <p>Director: {{response.Director}}</p>
+
+         <p>Writers: {{response.Writer}}</p>
+
+         <p>Actors: {{response.Actors}} </p>
+        
+         <p>Plot: {{response.Plot}}</p>
+        
+         <p>The movie is in {{response.Language}} language and was shot at {{response.Country}} won {{response.Awards}}</p> 
+      </div>
+    </div>
+
+     </template>
+
+  <script>
+
+  Polymer({
+
+      ready: function() {
+        this.$.ajax.addEventListener('polymer-response',function(data){
+            window.data = data;
+            this.response = data.detail.response;
+        });
+      }
+    });
+
+   </script>
+
+</polymer-element>
+
