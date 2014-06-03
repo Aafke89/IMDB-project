@@ -19,6 +19,8 @@
 
   <template>
 
+    
+
   </template>
 
   <script>
@@ -26,30 +28,30 @@
 
 $(document).ready(
 
-	d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
+  d3.json("https://imdbapi.firebaseio.com/.json", function(data){     
   var d = Object.keys(data).map(function(key){ return data[key]});
 
   console.log(d);
 
-  			 var w = 300;
+         var w = 300;
              var h = 300;
              var wm = 280;
              var hm = 280;
              
-    var svg = d3.select("#lefttop")
+    var svg = d3.select("#mainleft")
              .append("svg")
              .attr("width", w)
              .attr("height", h);
 
-   
+
    var movies = svg.selectAll("movies")
-          	 .data(d)
-          	 .enter()
-          	 .append("circle")
-          	 .attr("r", function(d){
-          	 	return (d.imdbRating -4 )* 4;
-          	 })
-          	 .attr("cx", function(d, i) {
+             .data(d)
+             .enter()
+             .append("circle")
+             .attr("r", function(d){
+              return (d.imdbRating -4 )* 4;
+             })
+             .attr("cx", function(d, i) {
                 return Math.random() * wm; })
             .attr("cy", function(d){
                 return Math.random() * hm; 
@@ -57,28 +59,34 @@ $(document).ready(
             .attr("fill", "grey")
             .attr("xlink:href", function (d) {
                 return "http://www.omdbapi.com/?t=" + (d.Title);
-             })
-            .on("mouseover", function(d){
-            	$("#lefttop").append(d.Title);
-            })
-            .on("click", function(d){
-              $("#leftbottom").append("<imdb-data movie=" + d.imdbID + " >" + "</imdb-data>");
-           });  
+             });
+            
+            
+
+    var click = movies.on("click", function(d){
+              $("#mainmid").empty().append("<imdb-data movie=" + d.imdbID + " >" + "</imdb-data>");
+           });
+
+    var title = movies.append("svg:title")
+            .text(function(d) {return d.Title;});
+
+
                                 
-          	 
+             
    $("#country").on("click", function()
             { 
             movies.transition()
              .duration(3000)
-          	 .attr("cx", function(d, i) {
+             .attr("cx", function(d, i) {
                 return Math.random() * wm; })
             .attr("cy", function(d){
                 return Math.random() * hm; 
             })
              .attr("fill", function(d) {
-             	if (d.Country == "USA"){return "blue"}
+              if (d.Country == "USA"){return "blue"}
                 else if (d.Country == "Germany") {return "red"}
-                	else {return "green"}
+                  else if(d.Country == "France") {return "yellow"}
+                  else {return "green"}
             });
          });
              
@@ -93,29 +101,12 @@ $("#year").on("click", function()
                 return Math.random() * hm; 
             })
              .attr("fill", function(d) {
-             	if (d.Year < 1950){return "yellow"}
+              if (d.Year < 1950){return "yellow"}
                 else if (d.Year < 1980) {return "orange"}
                 else if (d.Year < 2000) {return "red"}
-                	else {return "purple"}
+                  else {return "purple"}
             });
              });
-
-
-
-
-
-
-             
-
-          
- 
- 		
-             
-           
-
-
-
-
 
  }) );
  
@@ -127,4 +118,3 @@ $("#year").on("click", function()
 </script>
 
 </polymer-element>
-

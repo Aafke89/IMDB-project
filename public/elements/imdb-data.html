@@ -71,6 +71,8 @@
          <p>Plot: {{response.Plot}}</p>
         
          <p>The movie is in {{response.Language}} language and was shot at {{response.Country}} won {{response.Awards}}</p> 
+
+         <p>Country: {{response.Country}}</p>
       </div>
     </content>
 
@@ -78,13 +80,10 @@
 
   <script>
 
-    Polymer({
+    Polymer('imdb-data', {
 
       ready: function() {
-        this.$.ajax.addEventListener('polymer-response',function(data){
-            window.data = data;
-            this.response = data.detail.response;
-        });
+       
       }
     });
 

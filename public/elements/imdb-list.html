@@ -20,40 +20,18 @@
 
   <script>
 
- // $( document ).ready(function() {
-   // console.log( "ready!" );
-
-
- // d3.json("https://imdbapi.firebaseio.com/.json", function(data){
-			//return d = data});
-
-  //var dataset = Object.keys(d).map(function(key){ return d[key]});
-
-  //d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
-  //var d = Object.keys(data).map(function(key){ return data[key]});
-
-
-//var  output = '';
-//for (var i = 0 ; i < d.length; i++) {
-  //  output += d[i].Title + ' (' + d[i].Year +')'};
-
-//    console.log(output)
-
-  // $("#rightbottom").append(output);
-//});
-
-
+ 
 $(document).ready(
 
 	d3.json("https://imdbapi.firebaseio.com/.json", function(data){ 		
   var d = Object.keys(data).map(function(key){ return data[key]});
 
             for(i=0; i<d.length; i++){
-                    var  content  = '<p>';
+                    var  content  = '';
                          content +=  d[i].Title + ' / ' + d[i].Year + ' / ' + d[i].imdbRating;
-                         content += '</p>';
+                         content += ' &nbsp;  &nbsp; &nbsp; * &nbsp; &nbsp; &nbsp; ';
  
-            $('#rightbottom').append(content);
+            $('#bottom').append(content);
                 }
  
             })

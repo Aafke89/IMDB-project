@@ -19,7 +19,7 @@
     <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie}}&callback=" response="{{response}}"></polymer-jsonp>
 
     <div id="poster">
-        <img src="http://imdb.wemakesites.net/api/1.0/img/?url={{response.Poster}}" />
+        <img src="http://imdb.wemakesites.net/api/1.0/img/?url={{response.Poster}}" class="thumb" />
       </div>
 
   </template>

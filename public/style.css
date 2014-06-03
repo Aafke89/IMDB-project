@@ -1,13 +1,50 @@
- #header {
-      border-bottom: 1px solid black;
-
-   }
-
    #page {
     margin-left: 20px;
     margin-top:20px;
-       }
+           }
 
+    html {
+      background-color: #E0FFFF;
+
+    }
+
+  
+
+  #mainleft {
+    float: top;
+    float: left;
+    width: 38%;
+    height: 400px;
+    margin-top: 2px;
+    background-color: #7FFFD4;
+  }
+
+#mainmid {
+  float: top;
+    float: left;
+    width: 28%;
+    height: 400px;
+    margin-left: 12px;
+    margin-top: 2px;
+    background-color: #7FFFD4;
+    overflow: scroll;
+  }
+
+  #mainright {
+    float: top;
+    float: left;
+    width: 30%;
+    height: 400px;
+    margin-left: 12px;
+    margin-top: 2px;
+    background-color: #7FFFD4;
+  }
+
+  #bottom {
+    background-color: #FF1493;
+    float: left;
+    margin-top: 10px;
+  }
   
    h1 {
       font-family: arial;
@@ -15,7 +52,11 @@
       margin: auto;
    }
 
-   body {height: 100%;}
+   .thumb {
+    max-width: 100%;
+    min-width: 20%;
+    display: inline; 
+}
 
    
 
@@ -42,69 +83,6 @@
       text-decoration: none;
    }
 
-   #left{
-      float: left;
-      margin-top: 20px;
-      margin-right: 20px ;
-      border-right: 1px solid black;
-      width: 350px;
-            }
-
-  #lefttop {
-    float: top;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid black;
-    height: 350px;
-
-   }
-
-   #leftbottom {
-    font-family: arial;
-          font-color: black;
-          font-size: 6px;
-          float: top;
-          right: 40px;
-          text-align: left;
-           }
-
-
-   #right{
-      position: fixed;
-      right: 40px;
-      margin-left: 350px;
-      overflow: auto;
-
-   }
-
-   #righttop {
-    float: top;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    border-bottom: 1px solid black;
-    height: 350px;
-
-   }
-
-   #rightbottom {
-    font-family: arial;
-          font-color: black;
-          font-size: 12px;
-          float: top;
-          right: 40px;
-          text-align: center;
-           }
-
-   #footer{
-          font-family: arial;
-          font-color: black;
-          font-size: 10px;
-          position: fixed;
-          right: 40px;
-          bottom:20px;
-          border-top: 1px solid black;
-        }
-
   #element {
 
     border-left: 1px solid black;
@@ -114,5 +92,9 @@
   #stripe {
 
     border-bottom: 1px solid black;
+  }
+
+  #lefttitle {
+    margin-left: 250px;
   }
 
