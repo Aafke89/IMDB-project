@@ -19,8 +19,10 @@
 
   <template>
 
-    
-
+   
+    <input name="filter" type='text' id='moviehid' value={{filter}}> 
+    <span id="filterclick" class="button" on-click="{{filterBier}}" >filter<span>
+      <div id="legenda"> </div>
   </template>
 
   <script>
@@ -71,21 +73,23 @@ $(document).ready(
             .text(function(d) {return d.Title;});
 
 
-                                
-             
-   $("#country").on("click", function()
-            { 
-            movies.transition()
+   $(".button").on("click", function() { 
+             movies.transition()
              .duration(3000)
              .attr("cx", function(d, i) {
                 return Math.random() * wm; })
             .attr("cy", function(d){
                 return Math.random() * hm; 
-            })
-             .attr("fill", function(d) {
+            });
+          });                            
+             
+   $("#country").on("click", function()
+            { 
+              $("#legenda").empty().append("USA: blue, Germany: red, France: orange, Other: green");
+            movies.attr("fill", function(d) {
               if (d.Country == "USA"){return "blue"}
                 else if (d.Country == "Germany") {return "red"}
-                  else if(d.Country == "France") {return "yellow"}
+                  else if(d.Country == "France") {return "orange"}
                   else {return "green"}
             });
          });
@@ -93,25 +97,94 @@ $(document).ready(
 
 $("#year").on("click", function()
             { 
-             movies.transition()
-             .duration(3000)
-             .attr("cx", function(d, i) {
-                return Math.random() * wm; })
-            .attr("cy", function(d){
-                return Math.random() * hm; 
-            })
-             .attr("fill", function(d) {
-              if (d.Year < 1950){return "yellow"}
+              $("#legenda").empty().append("before 1950: pink, 1950-1970: orange, 1970-2000: red, after 2000: purple");
+             movies.attr("fill", function(d) {
+              if (d.Year < 1950){return "pink"}
                 else if (d.Year < 1980) {return "orange"}
                 else if (d.Year < 2000) {return "red"}
                   else {return "purple"}
             });
              });
 
- }) );
+$("#genre").on("click", function(){
+  $("#legenda").empty().append("Crime: pink, Comedy: blue, Romance: green, Other: red");
+             movies.attr("fill", function(d) {
+              if (d.Genre.indexOf('Crime') > -1) {
+  return "#FF00F7";
+} else if (d.Genre.indexOf('Comedy') > -1) {
+  return "#00EEFF";
+}
+else if (d.Genre.indexOf('Romance') > -1) {
+  return "#00FF40";
+}
+else {
+  return "red";
+}
+            });
+
+            
+ });
+
+
+Polymer('imdb-graph', {
+        
+        filter: " ",  
+          
+filterBier: function(d){
+
+  var bier = this.filter;
+
+  console.log(this.filter); 
+
+ movies.transition()
+             .duration(3000)
+             .attr("cx", function(d, i) {
+                return Math.random() * wm; })
+            .attr("cy", function(d){
+                return Math.random() * hm; 
+            });
+               
+
+ movies.attr("opacity", function(d) {
+                console.log(bier)
+               if (d.Actors.indexOf(bier) > -1) {
+  return 1;
+}             else if (d.Director.indexOf(bier) > -1) {
+  return 1;
+}
+else if (d.Genre.indexOf(bier) > -1) {
+  return 1;
+}
+else if (d.Language.indexOf(bier) > -1) {
+  return 1;
+}
+else if (d.Plot.indexOf(bier) > -1) {
+  return 1;
+}
+else if (d.Title.indexOf(bier) > -1) {
+  return 1;
+}
+else {return 0.2}
+            });
+           
+
+}});
+
+  
+  
+
+        
+
+
+
+        
+      
  
 
+}));
 
+ 
+              
 
 
 

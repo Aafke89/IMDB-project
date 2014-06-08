@@ -19,7 +19,7 @@
 
   }
 
-      #wrapper {
+      .wrapper {
     border: 1px solid black;
     float: left; 
     display: inline; 
@@ -45,7 +45,7 @@
 
     
 
-      <div id="wrapper">
+      <div id="content" class="wrapper">
         <input name="word" type='text' id='movie' value={{movie}}> 
 
       <polymer-jsonp id="ajax" auto url="http://www.omdbapi.com/?t={{movie}}&callback=" response="{{response}}"></polymer-jsonp>

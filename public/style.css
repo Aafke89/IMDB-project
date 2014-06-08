@@ -1,13 +1,56 @@
    #page {
     margin-left: 20px;
     margin-top:20px;
-           }
+               }
 
-    html {
-      background-color: #E0FFFF;
+               #content {
+                background-color: #F2FF00;
+    opacity: 0.7;
+    padding: 10px;
+               }
 
-    }
+               #informatie {
+                background-color: #F2FF00;
+    opacity: 0.7;
+    padding: 10px;
+               }
 
+  p {
+    font-family: arial;
+  }
+
+#grey {
+  border-top: 1px solid black;
+  }
+
+   
+
+         html { 
+  
+  background-color: black;
+} 
+
+#indexheader {
+  border-bottom: 1px solid black;
+}
+
+#header {
+  background-color: #AEFF00;
+  opacity: 0.7;
+  margin-bottom: 10px;
+  padding: 10px 10px;
+  }
+
+#footer {
+  float: right;
+  float: bottom;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  border-bottom: 1px solid black;
+  font-family: arial;
+  opacity: 0.7;
+  
+}
   
 
   #mainleft {
@@ -16,7 +59,8 @@
     width: 38%;
     height: 400px;
     margin-top: 2px;
-    background-color: #7FFFD4;
+    background-color: #F2FF00;
+    opacity: 0.7;
   }
 
 #mainmid {
@@ -26,8 +70,9 @@
     height: 400px;
     margin-left: 12px;
     margin-top: 2px;
-    background-color: #7FFFD4;
+    background-color: #F2FF00;
     overflow: scroll;
+    opacity: 0.7;
   }
 
   #mainright {
@@ -37,20 +82,25 @@
     height: 400px;
     margin-left: 12px;
     margin-top: 2px;
-    background-color: #7FFFD4;
+    background-color: #F2FF00;
+    opacity: 0.7;
   }
 
   #bottom {
-    background-color: #FF1493;
+    background-color: #AEFF00;
     float: left;
     margin-top: 10px;
+    opacity: 0.7;
+    padding: 10px 10px;
   }
   
    h1 {
       font-family: arial;
       font-size: 32px;
       margin: auto;
+      opacity: 1;
    }
+
 
    .thumb {
     max-width: 100%;
@@ -63,7 +113,6 @@
    a:link {
       font-family: arial;
       font-size: 12px;
-      color: black;
       text-decoration: none;
 
    }
@@ -97,4 +146,29 @@
   #lefttitle {
     margin-left: 250px;
   }
+
+  .button {
+    border: 1px solid black;
+    margin-left: 15px;
+    padding: 2px 2px;
+    background-color: #FF00E1;
+  }
+
+  #buttons {
+     margin: 10px 10px 10px 10px;
+     float: left;
+  }
+
+  #moviehid {
+    margin-top: 10px;
+    margin-left: 20px;
+      }
+
+      #legenda {
+        float: right;
+        margin-right:  5px;
+        margin-top: 5px;
+        border: 0.6px solid black;
+        font-size: 10px;
+        width: 200px;}
 
